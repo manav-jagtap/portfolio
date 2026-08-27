@@ -70,6 +70,13 @@ body.light-theme {
     box-sizing: border-box;
 }
 
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 
 html {
     scroll-behavior: smooth;
@@ -1411,6 +1418,19 @@ footer {
 
 @media (max-width: 650px) {
 
+    .hero {
+    overflow: hidden;
+}
+
+.hero::before {
+    right: -250px;
+}
+
+.animated-name {
+    max-width: 100%;
+    font-size: clamp(2.5rem, 12vw, 4rem);
+}
+
     .container {
 
         width: min(92%, 540px);
@@ -1681,14 +1701,13 @@ footer {
 /* Name letters */
 .animated-name span:not(.name-space) {
 
-    background:
-        linear-gradient(
-            110deg,
-            #ffffff 0%,
-            #e2e8f0 42%,
-            #67e8f9 72%,
-            #38bdf8 100%
-        );
+    background: linear-gradient(
+        110deg,
+        #22d3ee 0%,
+        #38bdf8 35%,
+        #818cf8 70%,
+        #a78bfa 100%
+    );
 
     -webkit-background-clip: text;
     background-clip: text;
