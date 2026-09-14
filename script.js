@@ -5,6 +5,7 @@
 const yearElement = document.getElementById("year");
 if (yearElement) yearElement.textContent = new Date().getFullYear();
 
+// Mobile menu
 const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.getElementById("navLinks");
 
@@ -42,18 +43,14 @@ if (menuBtn && navLinks) {
     });
 }
 
+// Theme
 const themeBtn = document.getElementById("themeBtn");
 if (themeBtn) {
     const savedTheme = localStorage.getItem("portfolio-theme");
-    if (savedTheme === "light") {
-        document.body.classList.add("light-theme");
-        themeBtn.textContent = "🌙";
-        themeBtn.setAttribute("aria-label", "Switch to dark mode");
-    } else {
-        document.body.classList.remove("light-theme");
-        themeBtn.textContent = "☀️";
-        themeBtn.setAttribute("aria-label", "Switch to light mode");
-    }
+    const useLight = savedTheme === "light";
+    document.body.classList.toggle("light-theme", useLight);
+    themeBtn.textContent = useLight ? "🌙" : "☀️";
+    themeBtn.setAttribute("aria-label", useLight ? "Switch to dark mode" : "Switch to light mode");
 
     themeBtn.addEventListener("click", () => {
         document.body.classList.toggle("light-theme");
@@ -64,6 +61,7 @@ if (themeBtn) {
     });
 }
 
+// Terminal typing effect
 const terminalText = document.getElementById("terminalText");
 const terminalMessages = [
     "whoami",
@@ -97,11 +95,13 @@ function typeTerminal() {
             messageIndex = (messageIndex + 1) % terminalMessages.length;
         }
     }
+
     setTimeout(typeTerminal, deleting ? 35 : 70);
 }
 
 typeTerminal();
 
+// Featured projects
 const projectsGrid = document.querySelector("#projects .cards");
 if (projectsGrid) {
     projectsGrid.className = "cards two";
@@ -132,7 +132,7 @@ if (projectsGrid) {
 
         <article class="card project">
             <div class="project-image">
-                <img src="images/projects/eventhub-banner.svg" alt="EventHub homepage banner">
+                <img src="images/projects/eventhub-banner.jpg?v=4" alt="EventHub homepage banner">
             </div>
             <div class="project-top">
                 <div><span class="project-badge">Event Management</span></div>
@@ -156,7 +156,7 @@ if (projectsGrid) {
 
         <article class="card project">
             <div class="project-image">
-                <img src="images/projects/turfpay-banner.svg" alt="TurfPay homepage banner">
+                <img src="images/projects/turfpay-banner.jpg?v=4" alt="TurfPay homepage banner">
             </div>
             <div class="project-top">
                 <div><span class="project-badge">Booking Platform</span></div>
@@ -203,6 +203,7 @@ if (projectsGrid) {
     `;
 }
 
+// Certifications
 const hackerRankProfile = "https://www.hackerrank.com/profile/jmanavd";
 const certificationsGrid = document.querySelector("#certifications .cards");
 
@@ -254,6 +255,7 @@ if (certificationsGrid) {
     `;
 }
 
+// HackerRank link in Contact only
 const contactLinks = document.querySelector("#contact .contact-links");
 if (contactLinks && !contactLinks.querySelector(".hackerrank-contact-link")) {
     contactLinks.insertAdjacentHTML("beforeend", `
@@ -261,6 +263,7 @@ if (contactLinks && !contactLinks.querySelector(".hackerrank-contact-link")) {
     `);
 }
 
+// Extra styles
 if (!document.getElementById("hackerrank-certification-styles")) {
     const certificationStyles = document.createElement("style");
     certificationStyles.id = "hackerrank-certification-styles";
@@ -290,6 +293,13 @@ if (!document.getElementById("hackerrank-certification-styles")) {
             background: rgba(250, 204, 21, 0.12);
             color: #facc15;
             border: 1px solid rgba(250, 204, 21, 0.28);
+        }
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            object-position: center;
         }
         @media (max-width: 1000px) {
             #certifications .cards.three { grid-template-columns: repeat(2, 1fr); }
