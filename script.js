@@ -538,3 +538,197 @@ if (projectsGrid) {
         </article>
     `;
 }
+
+
+// --------------------------------------------
+// HACKERRANK CERTIFICATIONS
+// --------------------------------------------
+
+const hackerRankProfile = "https://www.hackerrank.com/profile/jmanavd";
+const certificationsGrid = document.querySelector("#certifications .cards");
+
+if (certificationsGrid) {
+
+    certificationsGrid.className = "cards three";
+
+    certificationsGrid.insertAdjacentHTML("beforeend", `
+
+        <!-- HACKERRANK PYTHON -->
+        <article class="card certification-card">
+            <div class="certification-top">
+                <span class="certification-badge certified">Certified</span>
+                <span class="certification-icon">🐍</span>
+            </div>
+
+            <small>HackerRank Skills Certification</small>
+
+            <h3>Python (Basic)</h3>
+
+            <p>
+                Demonstrates foundational Python skills including data types,
+                collections, functions, control flow, strings and OOP basics.
+            </p>
+
+            <div class="chips">
+                <span>Python</span>
+                <span>Functions</span>
+                <span>Collections</span>
+                <span>OOP Basics</span>
+            </div>
+
+            <a
+                class="certificate-link"
+                href="${hackerRankProfile}"
+                target="_blank"
+                rel="noreferrer"
+            >View HackerRank Profile ↗</a>
+        </article>
+
+
+        <!-- HACKERRANK SQL -->
+        <article class="card certification-card">
+            <div class="certification-top">
+                <span class="certification-badge certified">Certified</span>
+                <span class="certification-icon">🗄️</span>
+            </div>
+
+            <small>HackerRank Skills Certification</small>
+
+            <h3>SQL (Basic)</h3>
+
+            <p>
+                Demonstrates foundational SQL skills including queries,
+                filtering, joins, relational data and database operations.
+            </p>
+
+            <div class="chips">
+                <span>SQL</span>
+                <span>MySQL</span>
+                <span>JOIN</span>
+                <span>Queries</span>
+            </div>
+
+            <a
+                class="certificate-link"
+                href="${hackerRankProfile}"
+                target="_blank"
+                rel="noreferrer"
+            >View HackerRank Profile ↗</a>
+        </article>
+
+
+        <!-- HACKERRANK JAVA -->
+        <article class="card certification-card">
+            <div class="certification-top">
+                <span class="certification-badge certified">Certified</span>
+                <span class="certification-icon">☕</span>
+            </div>
+
+            <small>HackerRank Skills Certification</small>
+
+            <h3>Java (Basic)</h3>
+
+            <p>
+                Demonstrates foundational Java skills including classes,
+                methods, collections, method overloading and core OOP concepts.
+            </p>
+
+            <div class="chips">
+                <span>Java</span>
+                <span>OOP</span>
+                <span>Collections</span>
+                <span>Methods</span>
+            </div>
+
+            <a
+                class="certificate-link"
+                href="${hackerRankProfile}"
+                target="_blank"
+                rel="noreferrer"
+            >View HackerRank Profile ↗</a>
+        </article>
+    `);
+}
+
+
+// --------------------------------------------
+// HACKERRANK PROFILE LINKS
+// --------------------------------------------
+
+const heroProfileActions = document.querySelector(".hero-profile-actions");
+
+if (heroProfileActions && !heroProfileActions.querySelector(".hackerrank-profile-link")) {
+    heroProfileActions.insertAdjacentHTML("beforeend", `
+        <a
+            href="${hackerRankProfile}"
+            target="_blank"
+            class="social-btn hackerrank-profile-link"
+            rel="noreferrer"
+        >
+            HackerRank ↗
+        </a>
+    `);
+}
+
+const contactLinks = document.querySelector("#contact .contact-links");
+
+if (contactLinks && !contactLinks.querySelector(".hackerrank-contact-link")) {
+    contactLinks.insertAdjacentHTML("beforeend", `
+        <a
+            class="btn hackerrank-contact-link"
+            href="${hackerRankProfile}"
+            target="_blank"
+            rel="noreferrer"
+        >
+            HackerRank
+        </a>
+    `);
+}
+
+
+// --------------------------------------------
+// CERTIFICATE LINK STYLING
+// --------------------------------------------
+
+if (!document.getElementById("hackerrank-certification-styles")) {
+    const certificationStyles = document.createElement("style");
+    certificationStyles.id = "hackerrank-certification-styles";
+    certificationStyles.textContent = `
+        .certificate-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 22px;
+            padding: 9px 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(56, 189, 248, 0.28);
+            color: var(--primary);
+            font-size: 0.82rem;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
+            transition: var(--transition);
+        }
+
+        .certificate-link:hover {
+            background: rgba(56, 189, 248, 0.1);
+            border-color: var(--primary);
+            color: var(--text);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 1000px) {
+            #certifications .cards.three {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 650px) {
+            #certifications .cards.three {
+                grid-template-columns: 1fr;
+            }
+        }
+    `;
+
+    document.head.appendChild(certificationStyles);
+}
