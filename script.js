@@ -244,14 +244,6 @@ if (certificationsGrid) {
             <div class="chips"><span>Java</span><span>OOP</span><span>Collections</span><span>Methods</span></div>
             <a class="certificate-link" href="${hackerRankProfile}" target="_blank" rel="noreferrer">View HackerRank Profile ↗</a>
         </article>
-
-        <article class="card certification-card">
-            <div class="certification-top"><span class="certification-badge in-progress">In Progress</span><span class="certification-icon">🛠️</span></div>
-            <small>Microsoft Certification Path</small>
-            <h3>Microsoft Azure Administrator (AZ-104)</h3>
-            <p>Currently preparing for AZ-104 to strengthen hands-on skills in Azure identities, governance, storage, networking, compute and monitoring.</p>
-            <div class="chips"><span>Azure</span><span>Administration</span><span>In Progress</span></div>
-        </article>
     `;
 }
 
@@ -288,11 +280,6 @@ if (!document.getElementById("hackerrank-certification-styles")) {
             border-color: var(--primary);
             color: var(--text);
             transform: translateY(-2px);
-        }
-        .certification-badge.in-progress {
-            background: rgba(250, 204, 21, 0.12);
-            color: #facc15;
-            border: 1px solid rgba(250, 204, 21, 0.28);
         }
         .project-image img {
             width: 100%;
