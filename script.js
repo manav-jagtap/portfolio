@@ -180,7 +180,7 @@ if (projectsGrid) {
 
         <article class="card project">
             <div class="project-image">
-                <img src="images/projects/prepx-dashboard.png" alt="PrepX student dashboard">
+                <img src="images/projects/prepx-dashboard.png?v=5" alt="PrepX student dashboard">
             </div>
             <div class="project-top">
                 <div><span class="project-badge">Team Full Stack Project</span></div>
