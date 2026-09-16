@@ -247,13 +247,11 @@ if (certificationsGrid) {
     `;
 }
 
-// HackerRank link in Contact only
-const contactLinks = document.querySelector("#contact .contact-links");
-if (contactLinks && !contactLinks.querySelector(".hackerrank-contact-link")) {
-    contactLinks.insertAdjacentHTML("beforeend", `
-        <a class="btn hackerrank-contact-link" href="${hackerRankProfile}" target="_blank" rel="noreferrer">HackerRank</a>
-    `);
-}
+// Remove MongoDB from the Databases skill card
+const databaseChips = document.querySelectorAll("#tech .chips span");
+databaseChips.forEach((chip) => {
+    if (chip.textContent.trim() === "MongoDB") chip.remove();
+});
 
 // Extra styles
 if (!document.getElementById("hackerrank-certification-styles")) {
